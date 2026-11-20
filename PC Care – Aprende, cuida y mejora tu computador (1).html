@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>PC Care – Aprende, cuida y mejora tu computador</title>
+<meta name="description" content="Aprende mantenimiento preventivo y correctivo de computadores paso a paso.">
+<style>:root{--bg:#f4f8ff;--card:#fff;--tx:#0b1f4d;--mu:#4a5d85;--ac:#1e6fff;--cy:#5ad1ff;--pv:#16a34a;--co:#f59e0b;--bd:#d6e2fb;--sh:0 6px 20px rgba(11,31,77,.1)}
+[data-theme=dark]{--bg:#06122e;--card:#0d2050;--tx:#eaf1ff;--mu:#a9bbe0;--bd:#1b3a7a;--sh:0 6px 20px rgba(0,0,0,.4)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;font-family:system-ui,Segoe UI,Roboto,sans-serif;line-height:1.6;color:var(--tx);background:var(--bg);
+background-image:radial-gradient(var(--bd) 1px,transparent 1px);background-size:26px 26px}
+#bar{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--ac),var(--cy));z-index:99}
+header{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:12px;padding:10px 20px;background:#0b1f4d;color:#fff;flex-wrap:wrap}
+.logo{color:#fff;font-weight:800;font-size:1.25rem;text-decoration:none}
+nav{display:flex;gap:4px;flex:1;flex-wrap:wrap}nav a{color:#cfe0ff;text-decoration:none;padding:6px 10px;border-radius:8px;font-size:.9rem;transition:.2s}
+nav a:hover{background:var(--ac);color:#fff}
+.tools{display:flex;gap:8px;margin-left:auto}
+#q{padding:7px 12px;border-radius:20px;border:0;width:150px}
+.tools button,#top{border:0;background:var(--ac);color:#fff;border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:1rem;transition:.2s}
+.tools button:hover,#top:hover{transform:scale(1.12);background:var(--cy)}
+#menu{display:none}
+#res{position:absolute;top:100%;right:20px;width:min(340px,92vw);background:var(--card);color:var(--tx);list-style:none;margin:0;padding:6px;border-radius:12px;box-shadow:var(--sh);max-height:60vh;overflow:auto}
+#res li{padding:9px 12px;border-radius:8px;cursor:pointer}#res li:hover{background:var(--bd)}
+section{max-width:1100px;margin:auto;padding:56px 20px}
+h1{font-size:clamp(2.4rem,7vw,4rem);margin:.2em 0;line-height:1.05}h1 small{display:block;font-size:1.1rem;font-weight:500;color:var(--ac);margin-top:8px}
+h2{font-size:clamp(1.6rem,4vw,2.2rem);margin:0 0 8px}.lead{color:var(--mu);font-size:1.05rem;max-width:760px}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center;min-height:80vh}
+.hero-img{width:100%;animation:fl 4s ease-in-out infinite}@keyframes fl{50%{transform:translateY(-12px)}}
+.badge,.tag{display:inline-block;padding:4px 12px;border-radius:20px;font-size:.8rem;font-weight:700;background:var(--cy);color:#06122e}
+.tag.prev{background:var(--pv);color:#fff}.tag.corr{background:var(--co);color:#1b1200}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}
+.btn,.b{display:inline-block;padding:12px 20px;border-radius:12px;border:0;font:inherit;font-weight:700;color:#fff;background:var(--ac);text-decoration:none;cursor:pointer;transition:.25s}
+.btn:hover,.b:hover{transform:translateY(-3px);box-shadow:0 8px 18px rgba(30,111,255,.4)}
+.btn.prev{background:var(--pv)}.btn.corr{background:var(--co);color:#1b1200}
+.note{color:var(--mu);border-left:4px solid var(--cy);padding-left:12px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:20px;box-shadow:var(--sh);transition:.25s}
+.card:hover{transform:translateY(-4px);border-color:var(--ac)}
+.grid2,.grid3,.grid4{display:grid;gap:16px;margin-top:16px}.grid2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.grid3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}.grid4{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.col{border-radius:18px;padding:20px;border:2px solid;background:var(--card)}.col.prev{border-color:var(--pv)}.col.corr{border-color:var(--co)}
+.stack{display:grid;gap:14px;margin-top:16px}
+details.card{padding:0}summary{cursor:pointer;padding:16px 20px;font-weight:700;font-size:1.1rem;list-style:none;display:flex;gap:10px;align-items:center}
+summary::-webkit-details-marker{display:none}summary::after{content:"＋";margin-left:auto;color:var(--ac)}details[open] summary::after{content:"−"}
+details>div{padding:0 20px 20px}details.prev{border-left:6px solid var(--pv)}details.corr{border-left:6px solid var(--co)}
+h4{margin:14px 0 4px;color:var(--ac)}.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.warn{background:rgba(245,158,11,.15);border-radius:10px;padding:10px 14px;margin-top:12px}
+.comp{cursor:pointer;text-align:center;font:inherit;color:var(--tx)}.comp span{font-size:2.2rem;display:block}.comp.on{background:var(--ac);color:#fff}
+.info{margin-top:16px;padding:20px;border-radius:16px;background:var(--card);border:2px dashed var(--cy)}
+.tool .lv{font-size:.8rem;font-weight:700;padding:2px 10px;border-radius:12px;background:var(--pv);color:#fff}.tool .lv.x{background:#dc2626}
+.danger{background:rgba(220,38,38,.08);border-radius:24px}.seclist{list-style:none;padding:0;display:grid;gap:10px}
+.seclist li{background:var(--card);border-left:6px solid #dc2626;padding:12px 16px;border-radius:12px}
+.opt{display:block;width:100%;text-align:left;margin:8px 0;padding:11px 14px;border-radius:12px;border:2px solid var(--bd);background:transparent;color:var(--tx);font:inherit;cursor:pointer;transition:.2s}
+.opt:hover:not(:disabled){border-color:var(--ac);transform:translateX(4px)}.opt.ok{background:#16a34a;color:#fff;border-color:#16a34a}.opt.no{background:#dc2626;color:#fff;border-color:#dc2626}
+.fb{margin:10px 0;padding:10px 14px;border-radius:10px;background:var(--bd)}
+.mt{display:grid;grid-template-columns:1fr 1fr;gap:12px}.mt .opt.sel{border-color:var(--cy);background:var(--bd)}.mt .opt.done{background:#16a34a;color:#fff;border-color:#16a34a;pointer-events:none}
+.tips{list-style:none;padding:0}.tips li{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;box-shadow:var(--sh)}
+.flash{animation:fa 1.5s}@keyframes fa{30%{box-shadow:0 0 0 6px var(--cy)}}
+footer{text-align:center;padding:24px;background:#0b1f4d;color:#cfe0ff}
+#top{position:fixed;right:18px;bottom:18px;width:46px;height:46px;z-index:40}
+@media(max-width:820px){.hero,.compare,.two,.mt{grid-template-columns:1fr}#menu{display:block}
+nav{display:none;order:5;width:100%;flex-direction:column}nav.open{display:flex}#q{width:110px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.tabs .b{padding:8px 14px;background:var(--card);color:var(--tx);border:2px solid var(--bd)}.tabs .b.on{background:var(--ac);color:#fff}
+.guide{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}.guide svg,.ba svg{width:100%;display:block;border-radius:16px}
+.prog{height:10px;border-radius:6px;background:var(--bd);margin:16px 0;overflow:hidden}.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ac),var(--cy));transition:.4s}
+.gnav{display:flex;justify-content:space-between;align-items:center}.b:disabled{opacity:.4;cursor:not-allowed}
+.ba{position:relative}.ba .top{position:absolute;inset:0;clip-path:inset(0 50% 0 0)}#baR{width:100%;margin-top:10px}
+table{width:100%;border-collapse:collapse}td,th{padding:9px;border-bottom:1px solid var(--bd);text-align:left}th{color:var(--ac)}
+.hs{cursor:pointer}.hs *{fill:var(--ac);stroke:var(--cy);stroke-width:2;transition:.2s}.hs:hover *,.hs.on *{fill:var(--cy)}.hs text{fill:#fff;stroke:none;font-size:10px;font-weight:700;pointer-events:none}#pcD{width:100%}
+.search{width:100%;max-width:420px;padding:10px 16px;border-radius:20px;border:2px solid var(--bd);background:var(--card);color:var(--tx);margin:12px 0;font:inherit}
+.rv{opacity:0;transform:translateY(24px);transition:.7s}.rv.in{opacity:1;transform:none}
+.chk{display:block;margin:6px 0}footer{padding:32px 20px}.fg{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;text-align:left}footer a{color:var(--cy)}
+@media(max-width:820px){.guide{grid-template-columns:1fr}}
+
+/* ===== Rediseño v3 ===== */
+:root{--vi:#8b5cf6;--ci:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M0 30h40l10 10h30M60 0v50l10 10h50M20 120V80l10-10h40' fill='none' stroke='%235ad1ff' stroke-opacity='.14' stroke-width='1.5'/%3E%3Ccircle cx='80' cy='40' r='3' fill='%235ad1ff' fill-opacity='.3'/%3E%3Ccircle cx='70' cy='70' r='3' fill='%235ad1ff' fill-opacity='.3'/%3E%3C/svg%3E")}
+body{font-family:"Segoe UI",system-ui,Roboto,sans-serif;background:var(--ci),radial-gradient(900px 500px at 85% -5%,rgba(30,111,255,.35),transparent),radial-gradient(700px 500px at -5% 40%,rgba(139,92,246,.18),transparent),linear-gradient(180deg,#f4f8ff,#e6efff);background-attachment:fixed}
+[data-theme=dark] body{background:var(--ci),radial-gradient(900px 500px at 85% -5%,rgba(30,111,255,.45),transparent),radial-gradient(700px 500px at -5% 40%,rgba(139,92,246,.22),transparent),radial-gradient(600px 400px at 60% 100%,rgba(90,209,255,.15),transparent),linear-gradient(180deg,#050d24,#0a1a44);background-attachment:fixed}
+h1,h2{letter-spacing:-.02em}h2{background:linear-gradient(90deg,var(--ac),var(--cy));-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block}
+h1{text-shadow:0 0 30px rgba(90,209,255,.4)}h1 small{color:var(--cy)}
+section{border-top:1px solid var(--bd)}section.hero{border-top:0}
+.card,.col,.info{backdrop-filter:blur(6px);background:color-mix(in srgb,var(--card) 88%,transparent)}
+.card:hover{box-shadow:0 0 0 1px var(--ac),0 12px 34px rgba(30,111,255,.35)}
+.btn,.b{background:linear-gradient(135deg,var(--ac),var(--vi));box-shadow:0 0 18px rgba(30,111,255,.45)}.btn.prev{background:linear-gradient(135deg,#16a34a,#0ea5e9)}.btn.corr{background:linear-gradient(135deg,#f59e0b,#f97316)}
+.tabs .b{background:var(--card);box-shadow:none}.tabs .b.on{background:linear-gradient(135deg,var(--ac),var(--vi))}
+.hero-img{filter:drop-shadow(0 0 30px rgba(90,209,255,.55))}
+.pic{margin:14px 0;border-radius:16px;overflow:hidden;box-shadow:var(--sh)}.pic svg{width:100%;display:block}.pic.wide{max-width:560px}
+.tool .pic,.corr .pic{max-width:420px}
+ol{padding-left:22px}#begList li{margin:6px 0}
+header{background:rgba(5,13,36,.88);backdrop-filter:blur(10px);border-bottom:1px solid #1e6fff55}
+
+/* ===== v4 ===== */
+[hidden]{display:none!important}
+.dots{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.dot{width:42px;height:42px;border-radius:50%;border:2px solid var(--bd);background:var(--card);color:var(--tx);cursor:pointer;font-weight:700;transition:.2s}.dot:hover{border-color:var(--cy)}.dot.cur{border-color:var(--cy);box-shadow:0 0 12px var(--cy)}.dot.ok{background:var(--pv);border-color:var(--pv);color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0}.chips span{background:var(--bd);padding:3px 10px;border-radius:14px;font-size:.82rem}
+.fade{animation:fd .45s}@keyframes fd{from{opacity:0;transform:translateX(16px)}}
+.guide small{display:block;color:var(--mu);margin-top:4px}#gR:not(:empty){padding:10px 14px;background:rgba(22,163,74,.22);border-radius:10px}
+.pic svg{cursor:zoom-in}.tool .pic{max-width:84px;float:left;margin:0 14px 8px 0}.tool .pic svg{background:linear-gradient(135deg,#12306e,#0a1a44)}.tool{overflow:hidden}
+#lb{position:fixed;inset:0;background:rgba(2,8,24,.92);z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}#lb svg{width:min(900px,100%);height:auto;border-radius:16px}#lb p{color:#fff}
+.dot,.chk,.opt{min-height:44px}
+
+/* ===== v5: fondo decorado y guías ===== */
+#bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.45;animation:dr 18s ease-in-out infinite alternate}
+.o1{width:420px;height:420px;background:#1e6fff;left:-100px;top:8%}.o2{width:380px;height:380px;background:#8b5cf6;right:-80px;top:45%;animation-delay:-6s}.o3{width:340px;height:340px;background:#06b6d4;left:35%;bottom:-120px;animation-delay:-11s}
+html:not([data-theme=dark]) .orb{opacity:.22}
+@keyframes dr{to{transform:translate(60px,-50px) scale(1.15)}}
+.fl{position:absolute;opacity:.15;animation:fl2 14s ease-in-out infinite}.fl svg{width:100%;height:auto;display:block}@keyframes fl2{50%{transform:translateY(-28px) rotate(8deg)}}
+.tg{align-self:center;font-weight:800;font-size:.85rem;padding:5px 12px;border-radius:12px;color:#fff}.tg.p{background:#16a34a}.tg.c{background:#f59e0b;color:#1b1200;margin-left:8px}
+.tabs .b.c.on{background:linear-gradient(135deg,#f59e0b,#f97316)}
+.guide{grid-template-columns:1.2fr 1fr;border-width:2px}#gT{font-size:1.4rem;margin-top:0}
+.pic svg{border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+@media(max-width:820px){.guide{grid-template-columns:1fr}.tg.c{margin-left:0}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<header>
+  <a href="#inicio" class="logo">💻 PC&nbsp;Care</a>
+  <nav id="nav">
+    <a href="#guias">Paso a paso</a><a href="#que">Teoría</a><a href="#preventivo">Preventivo</a><a href="#correctivo">Correctivo</a>
+    <a href="#componentes">Componentes</a><a href="#herramientas">Herramientas</a><a href="#seguridad">Seguridad</a>
+    <a href="#juegos">Actividades</a><a href="#plan">Plan</a><a href="#glosario">Glosario</a><a href="#consejos">Consejos</a>
+  </nav>
+  <div class="tools">
+    <input id="q" type="search" placeholder="Buscar tema…" aria-label="Buscar tema" autocomplete="off">
+    <button id="theme" aria-label="Cambiar entre modo claro y oscuro">🌙</button>
+    <button id="menu" aria-label="Abrir menú">☰</button>
+  </div>
+  <ul id="res" hidden></ul>
+</header>
+
+<main>
+<section id="inicio" class="hero">
+  <div class="hero-text">
+    <span class="badge">Educación tecnológica</span>
+    <h1>PC Care<small>Aprende, cuida y mejora tu computador</small></h1>
+    <p>El mantenimiento de computadores es el conjunto de cuidados que se le dan a un equipo para que funcione bien, dure más y no pierda tu información. No necesitas ser experto: empezar con hábitos simples ya marca la diferencia.</p>
+    <div class="btns"><a class="btn prev" href="#guias" data-g="0">Aprender mantenimiento preventivo</a><a class="btn corr" href="#guias" data-g="7">Aprender mantenimiento correctivo</a></div>
+    <p class="note">Un computador cuidado rinde mejor, consume menos reparaciones y protege tus trabajos, fotos y documentos.</p>
+  </div>
+  <svg class="hero-img" viewBox="0 0 320 260" role="img" aria-label="Ilustración de un computador de escritorio">
+    <rect x="40" y="20" width="240" height="160" rx="14" fill="#0b1f4d" stroke="#1e6fff" stroke-width="6"/>
+    <rect x="54" y="34" width="212" height="132" rx="6" fill="#0d2a6b"/>
+    <path d="M70 140l30-40 28 22 34-48 40 50 40-30" fill="none" stroke="#5ad1ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="100" cy="100" r="5" fill="#fff"/><circle cx="162" cy="74" r="5" fill="#fff"/>
+    <rect x="145" y="180" width="30" height="34" fill="#1e6fff"/><rect x="100" y="214" width="120" height="14" rx="7" fill="#1e6fff"/>
+    <rect x="70" y="238" width="180" height="14" rx="6" fill="#5ad1ff" opacity=".7"/>
+  </svg>
+</section>
+
+<section id="guias"><span class="tag prev">Guías visuales</span><h2>Aprende haciendo: guías paso a paso</h2><p class="lead">Elige un mantenimiento preventivo o correctivo y sigue cada paso con su imagen.</p>
+<div class="tabs" id="gTabs"></div><div class="card guide"><div id="gImg"></div><div><h3 id="gT"></h3><p id="gD"></p><p class="warn" id="gW"></p><div id="gChips" class="chips"></div><label class="chk"><input type="checkbox" id="gDone"> Marcar este paso como completado</label><p id="gR"></p></div></div>
+<div class="prog"><i id="gP"></i></div><div id="gDots" class="dots"></div><div class="gnav"><button class="b" id="gB">← Anterior</button><span id="gC"></span><button class="b" id="gN">Siguiente →</button></div></section>
+<section id="que">
+  <h2>¿Qué es el mantenimiento de computadores?</h2>
+  <p class="lead">Es cuidar y revisar el computador, tanto por fuera (hardware) como por dentro (software), para evitar fallas o arreglarlas cuando aparecen.</p>
+  <div class="grid3">
+    <article class="card"><h3>🎯 ¿Por qué es importante?</h3><p>El polvo, el calor, los virus y el desorden de archivos hacen que el equipo se vuelva lento o falle. Un poco de cuidado a tiempo evita problemas mayores.</p></article>
+    <article class="card"><h3>⭐ Beneficios</h3><ul><li>El equipo dura más años.</li><li>Funciona más rápido y estable.</li><li>Se reducen los gastos en reparaciones.</li><li>Tu información está más segura.</li></ul></article>
+    <article class="card"><h3>🔍 ¿Cómo se divide?</h3><p>Hay dos tipos: el <b>preventivo</b>, que evita problemas, y el <b>correctivo</b>, que los soluciona. Compáralos abajo.</p></article>
+  </div>
+  <div class="compare">
+    <div class="col prev"><h3>🛡️ Preventivo</h3><p><b>Cuándo:</b> antes de que haya fallas.</p><p><b>Objetivo:</b> evitar problemas.</p><p><b>Ejemplos:</b> limpiar el teclado, actualizar el sistema, hacer copias de seguridad.</p><p><b>Frecuencia:</b> de forma regular.</p></div>
+    <div class="col corr"><h3>🔧 Correctivo</h3><p><b>Cuándo:</b> cuando ya hay una falla.</p><p><b>Objetivo:</b> encontrar la causa y repararla.</p><p><b>Ejemplos:</b> arreglar un equipo que no enciende o que no tiene internet.</p><p><b>Frecuencia:</b> solo cuando aparece el problema.</p></div>
+  </div>
+</section>
+
+<section id="senales"><h2>Señales de que tu computador necesita mantenimiento</h2><p class="lead">Si notas alguna de estas señales, es momento de revisar tu equipo.</p><div id="sigList" class="grid3"></div></section>
+<section id="preventivo">
+  <span class="tag prev">Preventivo</span>
+  <h2>Mantenimiento preventivo</h2>
+  <p class="lead">Estos cuidados evitan problemas antes de que aparezcan. Toca cada tarjeta para ver los pasos.</p>
+  <div class="grid4"><article class="card"><h3>📘 ¿Qué es?</h3><p>Cuidados regulares que evitan fallas antes de que ocurran.</p></article><article class="card"><h3>🎯 ¿Para qué sirve?</h3><p>Alarga la vida del equipo, mejora su velocidad y protege tu información.</p></article><article class="card"><h3>📅 ¿Cuándo?</h3><p>De forma periódica; mira el plan de mantenimiento más abajo.</p></article><article class="card"><h3>🧰 ¿Qué necesito?</h3><p>Paño de microfibra, brocha suave y aire comprimido. Consulta la sección de herramientas.</p></article></div><div id="prevList" class="stack"></div>
+</section>
+
+<section id="comparar"><h2>Comparaciones visuales</h2><div class="grid2"><article class="card"><h3>🌀 Ventilador con polvo vs. limpio</h3><p>Desliza para comparar.</p><div class="ba" id="ba"></div><input type="range" id="baR" min="0" max="100" value="50" aria-label="Comparar"></article>
+<article class="card"><h3>💽 HDD frente a SSD</h3><table><tr><th></th><th>HDD</th><th>SSD</th></tr><tr><td>Funcionamiento</td><td>Discos giratorios</td><td>Memoria sin partes móviles</td></tr><tr><td>Velocidad</td><td>Más lento</td><td>Mucho más rápido</td></tr><tr><td>Golpes</td><td>Más sensible</td><td>Más resistente</td></tr><tr><td>Precio por GB</td><td>Menor</td><td>Mayor</td></tr><tr><td>Ruido</td><td>Puede sonar</td><td>Silencioso</td></tr></table></article>
+<article class="card"><h3>🌬️ Ventilación buena vs. mala</h3><p><b>Buena:</b> equipo sobre superficie dura, con espacio libre y rejillas limpias. <b>Mala:</b> sobre cama o cojín, pegado a la pared y con polvo.</p></article>
+<article class="card"><h3>📦 Almacenamiento lleno vs. organizado</h3><p><b>Lleno:</b> lento, sin espacio para actualizar. <b>Organizado:</b> carpetas claras, sin temporales ni programas sin uso, con espacio libre.</p></article></div></section>
+<section id="correctivo">
+  <span class="tag corr">Correctivo</span>
+  <h2>Mantenimiento correctivo</h2>
+  <p class="lead">Guía para problemas comunes. Revisa lo básico primero; <b>no todas las fallas se pueden arreglar en casa</b>, y cada guía te dice cuándo pedir ayuda técnica.</p>
+  <div id="corrList" class="stack"></div>
+</section>
+
+<section id="componentes">
+  <h2>Componentes de un computador</h2>
+  <p class="lead">Toca una pieza para saber qué hace.</p>
+  <div id="compList" class="grid4"></div>
+  <div id="compInfo" class="info" aria-live="polite">Selecciona un componente.</div><h3 style="margin-top:30px">🖥️ Computador abierto: toca una pieza</h3><div class="grid2"><svg id="pcD" viewBox="0 0 400 280" role="img" aria-label="Diagrama de un computador abierto"></svg><div id="pcI" class="info" aria-live="polite">Toca una parte del diagrama para ver su función, ubicación, cuidados y problemas.</div></div>
+</section>
+
+<section id="herramientas">
+  <h2>Herramientas y materiales</h2>
+  <p class="lead">Algunas las puede usar cualquier persona; otras requieren experiencia.</p>
+  <div id="toolList" class="grid3"></div>
+</section>
+
+<section id="seguridad" class="danger">
+  <h2>⚠️ Recomendaciones de seguridad</h2>
+  <ul id="secList" class="seclist"></ul>
+</section>
+
+<section id="juegos">
+  <h2>Actividades interactivas</h2>
+  <div class="grid2">
+    <article class="card" id="quiz"></article>
+    <article class="card" id="scen"></article>
+  </div>
+  <article class="card" id="match"></article><div class="grid2"><article class="card" id="ord"></article><article class="card" id="sym"></article></div>
+</section>
+
+<section id="errores"><h2>Errores que debes evitar</h2><div id="errList" class="grid3"></div><h2 style="margin-top:40px">Recomendaciones para principiantes</h2><ol id="begList"></ol></section>
+<section id="plan"><h2>Plan de mantenimiento</h2><p class="lead">La frecuencia puede variar según el uso y las condiciones del equipo (polvo, calor, cantidad de horas de uso).</p>
+<div class="tabs"><button class="b on" data-u="1">Uso normal</button><button class="b" data-u="2">Uso intenso</button></div><table id="planT"></table></section>
+<section id="glosario"><h2>Glosario informático</h2><input id="gq" class="search" type="search" placeholder="Buscar término…" aria-label="Buscar término"><div id="gl" class="grid3"></div></section>
+<section id="comprobar"><h2>Comprobación final</h2><p class="lead">Marca lo que ya verificaste.</p><ul id="chkList" class="seclist"></ul><p id="chkR" class="fb" aria-live="polite"></p></section>
+<section id="consejos">
+  <h2>Consejos finales</h2>
+  <ul id="tipList" class="grid3 tips"></ul>
+  <p><button class="b" id="tipB">💡 Dame un consejo</button></p><p id="tipO" class="fb" aria-live="polite"></p><p class="lead">Conclusión: el mantenimiento no es solo para técnicos. Con hábitos sencillos y sabiendo cuándo pedir ayuda, tu computador funcionará mejor y por más tiempo.</p>
+</section>
+</main>
+
+<footer><div class="fg"><div><b>💻 PC Care</b><br>Aprende, cuida y mejora tu computador.</div><div><b>Secciones</b><br><a href="#preventivo">Preventivo</a> · <a href="#correctivo">Correctivo</a> · <a href="#glosario">Glosario</a></div><div><b>Importante</b><br>Ante dudas o fallas eléctricas, acude a un técnico.</div></div></footer>
+<button id="top" aria-label="Volver al inicio" hidden>↑</button>
+<script>const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const li=a=>a.map(x=>`<li>${x}</li>`).join('');
+
+/* ---------- Contenido ---------- */
+const PREV=[
+{i:'🧽',t:'Limpieza física (teclado, pantalla, mouse, carcasa)',
+s:['Apaga el equipo y desconéctalo de la corriente (si es portátil, quita también el cargador).','Voltea el teclado suavemente y sacude para soltar migajas; usa una brocha suave o aire comprimido en ráfagas cortas.','Humedece ligeramente un paño de microfibra (nunca mojado) y pásalo por la carcasa, el mouse y las teclas.','Limpia la pantalla con un paño seco de microfibra, con movimientos suaves y sin presionar.','Espera a que todo esté seco antes de volver a conectar y encender.'],
+ok:['Paño de microfibra','Brocha suave','Aire comprimido','Alcohol isopropílico en poca cantidad, solo en el paño'],no:['Agua directa o chorros de líquido','Limpiavidrios o productos con amoníaco en la pantalla','Papel de cocina áspero','Aspiradoras comunes (generan estática)']},
+{i:'🌀',t:'Limpieza interna (polvo dentro del equipo)',
+s:['Entiende qué es: retirar el polvo acumulado en ventiladores, disipadores y rejillas, porque el polvo atrapa calor.','Las zonas que más polvo acumulan son el ventilador de la fuente, el ventilador del procesador, el disipador y las rejillas de entrada de aire.','En un computador de escritorio, con todo apagado y desconectado, abre la tapa lateral y sopla el polvo con aire comprimido en ráfagas cortas, sujetando el ventilador para que no gire de golpe.','En un portátil, limpia solo las rejillas externas; abrirlo suele requerir conocimientos y puede anular la garantía.','Cierra la tapa y comprueba que todo enciende con normalidad.'],
+ok:['Aire comprimido','Brocha antiestática','Trabajar en un lugar seco y bien iluminado'],no:['Tocar la fuente de poder por dentro','Usar aspiradora o paños húmedos dentro','Forzar piezas o cables','Abrir un equipo con garantía vigente sin consultar'],
+w:'Si no te sientes seguro, tienes dudas o el equipo es portátil, acude a un técnico o pide ayuda a un adulto con experiencia.'},
+{i:'💾',t:'Mantenimiento del software',
+s:['Elimina temporales: en Windows busca “Liberador de espacio en disco” o ve a Configuración > Sistema > Almacenamiento > Archivos temporales.','Libera espacio: borra descargas innecesarias, vacía la papelera y pasa fotos o videos grandes a una nube o memoria externa.','Desinstala programas que no usas desde Configuración > Aplicaciones.','Actualiza el sistema operativo desde Windows Update (o la herramienta equivalente de tu sistema) y reinicia cuando lo pida.','Haz un análisis con el antivirus integrado (por ejemplo Seguridad de Windows) o con un antivirus de una marca reconocida.'],
+ok:['Descargar programas solo de sitios oficiales','Reiniciar el equipo con regularidad'],no:['Instalar “limpiadores milagrosos” desconocidos','Desactivar el antivirus','Posponer siempre las actualizaciones']},
+{i:'🌡️',t:'Cuidado diario del computador',
+s:['Evita el sobrecalentamiento: no bloquees las rejillas y no uses el portátil sobre camas o cojines.','Mantén buena ventilación: deja espacio libre alrededor del equipo; una base elevada para portátil ayuda.','Usa el equipo con cuidado: apágalo de forma correcta desde el sistema y no lo muevas mientras trabaja el disco duro.','Evita golpes y líquidos: mantén las bebidas lejos y transporta el portátil en una funda acolchada.','Haz copias de seguridad de tus archivos importantes en una nube o disco externo, de forma periódica.'],
+ok:['Superficies planas y firmes','Regletas con protección','Copias de seguridad en dos lugares'],no:['Comer o beber sobre el teclado','Apagar el equipo manteniendo presionado el botón como costumbre','Dejarlo al sol o en lugares muy calientes']}
+];
+const CORR=[
+{i:'🐌',t:'El computador está demasiado lento',c:'Muchos programas abiertos, disco casi lleno, virus, poca memoria RAM o exceso de polvo y calor.',d:'Tarda en abrir programas, el cursor responde tarde y el ventilador suena fuerte.',
+s:['Cierra los programas que no uses (Ctrl+Shift+Esc abre el Administrador de tareas en Windows).','Reinicia el equipo.','Libera espacio y desinstala lo que no uses.','Revisa los programas que se inician con el sistema y desactiva los innecesarios.','Haz un análisis antivirus y actualiza el sistema.'],tec:'Si sigue lento tras estos pasos, puede necesitar más RAM, cambio a SSD o limpieza interna: consulta a un técnico.'},
+{i:'⚡',t:'El computador no enciende',c:'Cable o cargador sin conexión, toma sin corriente, batería agotada, falla de la fuente o de la tarjeta madre.',d:'No hay luces, ni ruido, ni imagen al presionar el botón.',
+s:['Comprueba que la toma tenga corriente probando otro aparato.','Revisa que los cables estén bien conectados y prueba otro cable o regleta.','En portátiles, conecta el cargador original y espera unos minutos.','Verifica que el monitor esté encendido y bien conectado (a veces el equipo sí enciende, pero no hay imagen).'],tec:'Si no enciende tras estas revisiones, no abras la fuente ni la batería: lleva el equipo a un técnico.'},
+{i:'🔥',t:'El computador se sobrecalienta',c:'Polvo en ventiladores, rejillas tapadas, uso sobre superficies blandas o ventilador dañado.',d:'La carcasa está muy caliente, el ventilador suena fuerte o el equipo se apaga solo.',
+s:['Guarda tu trabajo y apaga el equipo para que se enfríe.','Colócalo en una superficie dura y con espacio libre.','Limpia las rejillas por fuera con aire comprimido.','Cierra programas pesados al volver a encender.'],tec:'Si continúa, puede requerir limpieza interna o cambio de pasta térmica o ventilador: es trabajo para un técnico.'},
+{i:'📶',t:'El computador no tiene conexión a internet',c:'Router apagado, Wi-Fi desactivado, clave incorrecta, falla del proveedor o de la tarjeta de red.',d:'Aparece el aviso de “sin conexión” o las páginas no cargan.',
+s:['Comprueba si otros dispositivos tienen internet.','Verifica que el Wi-Fi esté activado y que no esté el modo avión.','Reinicia el router (desconéctalo 30 segundos) y reinicia el computador.','Olvida la red Wi-Fi y vuelve a conectarte con la clave.','Usa el solucionador de problemas de red del sistema.'],tec:'Si ningún dispositivo tiene internet, llama a tu proveedor. Si solo falla este equipo, consulta a un técnico.'},
+{i:'🔇',t:'El computador no reproduce sonido',c:'Volumen en silencio, dispositivo de salida equivocado, audífonos conectados, controladores desactualizados.',d:'No se oye audio en videos o programas.',
+s:['Revisa que el volumen no esté en silencio, ni en el equipo ni en el programa.','Selecciona la salida correcta (altavoces o audífonos) en el icono de volumen.','Desconecta y vuelve a conectar audífonos o altavoces.','Reinicia el equipo y actualiza el sistema.'],tec:'Si no hay sonido en ninguna salida, podría ser falla del hardware de audio: consulta a un técnico.'},
+{i:'⌨️',t:'El teclado o el mouse no funcionan',c:'Cable suelto, baterías agotadas, puerto USB con falla o receptor inalámbrico desconectado.',d:'No aparecen letras o el cursor no se mueve.',
+s:['Revisa que estén conectados y cambia las baterías si son inalámbricos.','Prueba otro puerto USB.','Prueba el dispositivo en otro computador.','Reinicia el equipo.'],tec:'Si el dispositivo funciona en otro equipo pero no en el tuyo, el problema puede ser interno: acude a un técnico.'},
+{i:'🧊',t:'El computador se queda congelado',c:'Programa que falla, poca memoria, disco lleno, calentamiento o virus.',d:'La pantalla no responde y el cursor no se mueve o se mueve muy lento.',
+s:['Espera uno o dos minutos: a veces solo está ocupado.','Intenta cerrar el programa con Ctrl+Shift+Esc (Administrador de tareas).','Si nada responde, mantén presionado el botón de encendido hasta apagarlo y vuelve a encender.','Cuando funcione, actualiza el sistema y revisa el espacio libre.'],tec:'Si se congela con frecuencia, puede haber falla de disco, RAM o calentamiento: consulta a un técnico.'},
+{i:'📦',t:'El almacenamiento está lleno',c:'Muchas descargas, fotos y videos pesados, programas sin uso y archivos temporales.',d:'El sistema avisa de poco espacio o no deja guardar archivos.',
+s:['Abre Configuración > Sistema > Almacenamiento para ver qué ocupa más.','Borra archivos temporales y vacía la papelera.','Desinstala programas que no uses.','Mueve fotos y videos a un disco externo o a una nube.'],tec:'Si ya liberaste espacio y sigue lleno, o necesitas más capacidad, un técnico puede instalar un disco más grande.'}
+];
+const COMP=[
+['Procesador (CPU)','🧠','Es el “cerebro” del computador: realiza las operaciones y ejecuta las instrucciones de los programas.'],
+['Memoria RAM','🧩','Guarda temporalmente lo que estás usando. Más RAM permite tener más programas abiertos con fluidez; al apagar, se borra.'],
+['Disco duro y SSD','💽','Guardan tus archivos y el sistema de forma permanente. El SSD es más rápido y no tiene partes móviles.'],
+['Tarjeta madre','🔌','Es la placa principal que conecta y permite que todas las piezas se comuniquen.'],
+['Fuente de alimentación','🔋','Convierte la corriente de la pared en la energía que necesitan las piezas. Solo la debe manipular personal técnico.'],
+['Tarjeta gráfica','🎮','Procesa imágenes, videos y juegos para mostrarlos en la pantalla.'],
+['Sistema de refrigeración','❄️','Ventiladores y disipadores que evacuan el calor para proteger las piezas.']
+];
+const HERR=[
+['Paño de microfibra','🧻','Limpiar pantalla y carcasa sin rayar.','Cuidado: mantenlo limpio y sin químicos fuertes.',0],
+['Brocha suave','🖌️','Sacar polvo de teclado y rejillas.','Cuidado: guárdala seca y limpia.',0],
+['Aire comprimido','💨','Soplar polvo de zonas difíciles.','Cuidado: ráfagas cortas, en vertical, y lejos de la cara.',0],
+['Alcohol isopropílico','🧴','Limpiar superficies externas.','Cuidado: poca cantidad, en el paño, y lejos del fuego.',0],
+['Destornilladores de precisión','🪛','Abrir carcasas y tornillos pequeños.','Cuidado: usa la medida correcta para no dañar los tornillos.',1],
+['Pulsera antiestática','⚡','Reduce descargas que pueden dañar componentes.','Cuidado: conéctala siempre a una superficie metálica sin pintar.',1],
+['Pasta térmica','🧪','Mejora el paso de calor entre procesador y disipador.','Cuidado: se aplica en cantidad mínima y solo con experiencia.',1],
+['Multímetro','📟','Medir voltajes y continuidad.','Cuidado: requiere conocimientos de electricidad.',1]
+];
+const SEG=['Apaga y desconecta el computador antes de hacer una limpieza física.','No uses líquidos directamente sobre los componentes; aplica poco producto en un paño.','No manipules fuentes de alimentación ni componentes eléctricos peligrosos: pueden guardar energía aun desconectados.','No abras baterías ni intentes repararlas: pueden incendiarse.','Evita trabajar con piezas internas sin conocimientos adecuados.','Pide ayuda a un adulto o a un técnico cuando tengas dudas.'];
+const TIPS=['Limpia el exterior cada semana.','Haz limpieza de polvo según el entorno (cada pocos meses).','Mantén el sistema y el antivirus actualizados.','Haz copias de seguridad con frecuencia.','Desinstala lo que no uses.','Apaga el equipo de forma correcta.','Usa regleta con protección.','Lejos de líquidos y de superficies blandas.','Si dudas, consulta a un técnico.'];
+const QUIZ=[
+['¿Cuál es un ejemplo de mantenimiento preventivo?',['Cambiar la fuente dañada','Hacer copias de seguridad','Reparar una pantalla rota','Formatear tras un virus'],1,'Las copias de seguridad previenen la pérdida de datos antes de que ocurra un problema.'],
+['¿Qué debes hacer antes de limpiar el equipo?',['Apagarlo y desconectarlo','Rociarlo con agua','Dejarlo encendido','Quitarle la tapa de la fuente'],0,'Apagar y desconectar evita descargas y daños.'],
+['¿Qué función cumple la memoria RAM?',['Guardar archivos para siempre','Enfriar el equipo','Guardar temporalmente lo que usas','Mostrar imágenes'],2,'La RAM es memoria temporal de trabajo; el almacenamiento permanente está en el disco.'],
+['El equipo se apaga solo y está muy caliente. ¿Qué es lo más probable?',['Falta de papel','Sobrecalentamiento por polvo o mala ventilación','El teclado está sucio','Poca luz'],1,'El calor excesivo suele venir del polvo y de rejillas tapadas.'],
+['¿Cuál es el mantenimiento correctivo?',['Actualizar antes de fallas','Solucionar una falla que ya apareció','Limpiar el teclado cada semana','Comprar un mouse nuevo'],1,'El correctivo actúa cuando ya existe el problema.'],
+['¿Qué producto es mejor para limpiar la pantalla?',['Paño de microfibra seco o apenas húmedo','Limpiavidrios con amoníaco','Estropajo','Agua en chorro'],0,'La microfibra limpia sin rayar y sin dañar los recubrimientos.']
+];
+const ESC=[
+['Tu computador está muy lento. ¿Qué harías primero?',[['Comprarlo nuevo',0,'Antes de gastar, revisa lo básico.'],['Cerrar programas, reiniciar y revisar espacio',1,'Es lo más simple, seguro y barato de probar primero.'],['Abrir el equipo y cambiar piezas',0,'Sin conocimientos puedes dañarlo.']]],
+['Se te derramó agua sobre el teclado del portátil.',[['Apagarlo, desconectarlo y llevarlo a un técnico',1,'Lo más importante es cortar la energía y no encenderlo.'],['Encenderlo para ver si funciona',0,'Encenderlo puede causar un cortocircuito.'],['Secarlo con un secador caliente',0,'El calor puede dañar piezas.']]],
+['El equipo no enciende.',[['Revisar la toma, el cable y el cargador',1,'Muchas veces el problema es de conexión.'],['Abrir la fuente de poder',0,'Es peligroso: no la manipules.'],['Golpearlo suavemente',0,'Los golpes pueden empeorar el daño.']]]
+];
+
+CORR.push({i:'🟦',t:'Pantalla azul',c:'Falla de controlador, RAM o disco con problemas, actualización fallida o calor.',d:'Aparece una pantalla azul con un mensaje de error y el equipo se reinicia.',s:['Anota el código de error que muestra.','Reinicia el equipo y revisa que el sistema esté actualizado.','Desconecta los dispositivos USB que agregaste hace poco.','Libera espacio en el disco.'],tec:'Si se repite con frecuencia, puede ser falla de RAM, disco o placa: consulta a un técnico.'},{i:'🖱️',t:'El mouse no responde',c:'Baterías agotadas, cable suelto, superficie que no lee bien o puerto con falla.',d:'El cursor no se mueve o salta.',s:['Cambia las baterías o revisa el cable.','Limpia el sensor con un paño seco y usa una superficie lisa.','Prueba otro puerto USB u otro equipo.','Reinicia el computador.'],tec:'Si funciona en otro equipo pero no en el tuyo, pide revisión técnica.'},{i:'🔁',t:'El computador se reinicia solo',c:'Sobrecalentamiento, actualización pendiente, controlador con falla, fuente o RAM con problemas, o virus.',d:'Se reinicia sin avisar, a veces con pantalla azul o durante tareas pesadas.',s:['Anota cuándo ocurre (al abrir un programa, al calentarse, etc.).','Revisa que las rejillas no estén tapadas y limpia el polvo por fuera.','Instala las actualizaciones pendientes del sistema.','Haz un análisis antivirus.','Desconecta dispositivos USB nuevos y prueba de nuevo.'],tec:'Si continúa, puede ser falla de fuente, RAM o placa: llévalo a un técnico y no abras la fuente.'});
+/* ---------- Render ---------- */
+$('#prevList').innerHTML=PREV.map(p=>`<details class="card prev"><summary><span>${p.i}</span>${p.t}</summary><div><h4>Paso a paso</h4><ol>${li(p.s)}</ol><div class="two"><div><h4>✅ Recomendado</h4><ul>${li(p.ok)}</ul></div><div><h4>⛔ Evitar</h4><ul>${li(p.no)}</ul></div></div>${p.w?`<p class="warn">⚠️ ${p.w}</p>`:''}</div></details>`).join('');
+$('#corrList').innerHTML=CORR.map((p,n)=>`<details class="card corr"><summary><span>${p.i}</span>${n+1}. ${p.t}</summary><div><h4>Posibles causas</h4><p>${p.c}</p><h4>Cómo identificarlo</h4><p>${p.d}</p><h4>Soluciones básicas</h4><ol>${li(p.s)}</ol><p class="warn">🧑‍🔧 <b>Cuándo acudir a un técnico:</b> ${p.tec}</p></div></details>`).join('');
+$('#compList').innerHTML=COMP.map((c,n)=>`<button class="card comp" data-n="${n}"><span>${c[1]}</span>${c[0]}</button>`).join('');
+$('#compList').onclick=e=>{const b=e.target.closest('.comp');if(!b)return;$$('.comp').forEach(x=>x.classList.remove('on'));b.classList.add('on');const c=COMP[b.dataset.n];$('#compInfo').innerHTML=`<h3>${c[1]} ${c[0]}</h3><p>${c[2]}</p>`};
+$('#toolList').innerHTML=HERR.map(h=>`<article class="card tool"><h3>${h[1]} ${h[0]}</h3><span class="lv ${h[4]?'x':''}">${h[4]?'Requiere experiencia':'Uso general'}</span><p><b>Sirve para:</b> ${h[2]}</p><p>${h[3]}</p></article>`).join('');
+$('#secList').innerHTML=li(SEG);$('#tipList').innerHTML=TIPS.map(t=>`<li>✔ ${t}</li>`).join('');
+
+/* ---------- Quiz ---------- */
+let qi=0,sc=0;
+function quiz(){const el=$('#quiz');if(qi>=QUIZ.length){el.innerHTML=`<h3>🏁 Quiz terminado</h3><p>Tu puntaje: <b>${sc} de ${QUIZ.length}</b></p><button class="b" id="qr">Reintentar</button>`;$('#qr').onclick=()=>{qi=0;sc=0;quiz()};return}
+const q=QUIZ[qi];el.innerHTML=`<h3>📝 Quiz (${qi+1}/${QUIZ.length})</h3><p>${q[0]}</p>${q[1].map((o,i)=>`<button class="opt" data-i="${i}">${o}</button>`).join('')}<div id="qf"></div>`;
+$$('#quiz .opt').forEach(b=>b.onclick=()=>{const i=+b.dataset.i;$$('#quiz .opt').forEach(x=>x.disabled=true);$$('#quiz .opt')[q[2]].classList.add('ok');if(i===q[2])sc++;else b.classList.add('no');
+$('#qf').innerHTML=`<p class="fb">${i===q[2]?'✅ ¡Correcto!':'❌ Incorrecto.'} ${q[3]}</p><button class="b" id="qn">${qi+1<QUIZ.length?'Siguiente':'Ver puntaje'}</button>`;$('#qn').onclick=()=>{qi++;quiz()}})}
+quiz();
+
+/* ---------- ¿Qué harías si...? ---------- */
+let si=0;
+function scen(){const el=$('#scen'),s=ESC[si];el.innerHTML=`<h3>🤔 ¿Qué harías si…? (${si+1}/${ESC.length})</h3><p>${s[0]}</p>${s[1].map((o,i)=>`<button class="opt" data-i="${i}">${o[0]}</button>`).join('')}<div id="sf"></div>`;
+$$('#scen .opt').forEach(b=>b.onclick=()=>{const o=s[1][b.dataset.i];$$('#scen .opt').forEach(x=>x.disabled=true);b.classList.add(o[1]?'ok':'no');
+$('#sf').innerHTML=`<p class="fb">${o[1]?'✅ Buena decisión.':'❌ No es lo mejor.'} ${o[2]}</p><button class="b" id="sn">Otra situación</button>`;$('#sn').onclick=()=>{si=(si+1)%ESC.length;scen()}})}
+scen();
+
+/* ---------- Relacionar ---------- */
+let sel=null,hits=0;
+function match(){const names=COMP.map((c,i)=>[c[0],i]),funs=COMP.map((c,i)=>[c[2].split('.')[0]+'.',i]).sort(()=>Math.random()-.5);hits=0;sel=null;
+$('#match').innerHTML=`<h3>🔗 Relaciona cada componente con su función</h3><p id="mc">Aciertos: 0 / ${COMP.length}. Elige un componente y luego su función.</p><div class="mt"><div>${names.map(n=>`<button class="opt" data-k="${n[1]}" data-s="n">${n[0]}</button>`).join('')}</div><div>${funs.map(f=>`<button class="opt" data-k="${f[1]}" data-s="f">${f[0]}</button>`).join('')}</div></div><p><button class="b" id="mr">Reiniciar</button></p>`;
+$('#mr').onclick=match;
+$$('#match .opt').forEach(b=>b.onclick=()=>{if(b.dataset.s==='n'){$$('#match [data-s=n]').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');sel=b;return}
+if(!sel)return $('#mc').textContent='Primero elige un componente de la izquierda.';
+if(sel.dataset.k===b.dataset.k){sel.classList.add('done');b.classList.add('done');sel=null;hits++;$('#mc').textContent=hits===COMP.length?'🎉 ¡Excelente! Relacionaste todos.':`Aciertos: ${hits} / ${COMP.length}`}
+else{b.classList.add('no');setTimeout(()=>b.classList.remove('no'),600);$('#mc').textContent='❌ Esa no es su función, intenta de nuevo.'}})}
+match();
+
+/* ---------- Funciones generales ---------- */
+const bar=$('#bar'),topBtn=$('#top');
+addEventListener('scroll',()=>{const h=document.documentElement;bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';topBtn.hidden=h.scrollTop<400});
+topBtn.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+$('#menu').onclick=()=>$('#nav').classList.toggle('open');
+$('#nav').onclick=e=>{if(e.target.tagName==='A')$('#nav').classList.remove('open')};
+function setTheme(t){document.documentElement.dataset.theme=t;$('#theme').textContent=t==='dark'?'☀️':'🌙';try{localStorage.setItem('pccare',t)}catch(e){}}
+let saved=null;try{saved=localStorage.getItem('pccare')}catch(e){}
+setTheme(saved||'dark');
+$('#theme').onclick=()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark');
+
+/* Buscador */
+const norm=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+$('#q').oninput=e=>{const IDX=$$('main .card, main .col').map(el=>({el,t:(el.querySelector('summary,h3')||el).textContent.trim().slice(0,70),x:norm(el.textContent)}));const v=norm(e.target.value.trim()),r=$('#res');if(v.length<2){r.hidden=true;return}
+const m=IDX.filter(i=>i.x.includes(v)).slice(0,7);r.innerHTML=m.length?m.map((_,k)=>`<li data-k="${k}">${m[k].t}</li>`).join(''):'<li>Sin resultados</li>';r.hidden=false;
+r.onclick=ev=>{const k=ev.target.dataset.k;if(k===undefined)return;const el=m[k].el;if(el.tagName==='DETAILS')el.open=true;el.scrollIntoView({behavior:'smooth',block:'center'});el.classList.add('flash');setTimeout(()=>el.classList.remove('flash'),1500);r.hidden=true}};
+document.addEventListener('click',e=>{if(!e.target.closest('header'))$('#res').hidden=true});
+
+/* ---------- Ampliación v2 ---------- */
+let gid=0;
+const ill=(e,c,t)=>{gid++;return `<svg viewBox="0 0 320 200" role="img" aria-label="${t}"><defs><linearGradient id="g${gid}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c}"/><stop offset="1" stop-color="#0b1f4d"/></linearGradient></defs><rect width="320" height="200" fill="url(#g${gid})"/><g stroke="#ffffff22">${[40,80,120,160,200,240,280].map(x=>`<path d="M${x} 0V200"/>`).join('')}</g><text x="160" y="125" font-size="86" text-anchor="middle">${e}</text><text x="12" y="188" font-size="13" fill="#fff">${t}</text></svg>`};
+const GU=[
+{n:'⌨️ Teclado',s:[['🔌','Apaga y desconecta','Apaga el equipo desde el sistema y desconecta el teclado o el cable de corriente.','Nunca limpies con el equipo encendido.','#1e6fff'],['🖌️','Retira el polvo','Voltea el teclado y sacude suavemente; pasa una brocha suave o aire comprimido en ráfagas cortas.','','#0ea5e9'],['🧽','Limpia las superficies','Usa un paño de microfibra ligeramente humedecido con un producto adecuado sobre teclas, mouse y carcasa.','No rocíes líquido directamente sobre el teclado.','#16a34a'],['⏳','Deja secar','Espera a que todo seque por completo antes de volver a conectar y usar.','','#f59e0b']]},
+{n:'🖥️ Pantalla',s:[['🔌','Apaga la pantalla','Apaga el equipo y desconéctalo para ver mejor la suciedad.','','#1e6fff'],['🧻','Quita el polvo','Pasa un paño de microfibra seco, con movimientos suaves en una dirección.','','#0ea5e9'],['💧','Quita manchas','Humedece apenas el paño (no la pantalla) con agua o un limpiador apto para pantallas.','No uses amoníaco, alcohol fuerte ni presiones fuerte.','#16a34a'],['✅','Seca y revisa','Seca con otro paño limpio y comprueba que no queden marcas.','','#f59e0b']]},
+{n:'🌀 Rejillas y ventiladores (por fuera)',s:[['🔌','Apaga y desconecta','Apaga el equipo y quita el cable de corriente.','','#1e6fff'],['🔍','Ubica las rejillas','Busca las entradas y salidas de aire en los costados y la parte trasera.','','#0ea5e9'],['💨','Sopla el polvo','Usa aire comprimido en ráfagas cortas y en vertical, sin acercar demasiado la boquilla.','Si hay que abrir el equipo o tocar la fuente, acude a un técnico.','#16a34a'],['📦','Deja espacio libre','Coloca el equipo sobre una superficie dura, con espacio alrededor.','','#f59e0b']]},
+{n:'🗂️ Orden y seguridad del sistema',s:[['🗑️','Libera espacio','Vacía la papelera y borra archivos temporales desde Configuración > Almacenamiento.','','#1e6fff'],['📥','Revisa descargas','Borra o mueve a un disco externo lo que no uses.','','#0ea5e9'],['🛡️','Analiza el equipo','Ejecuta un análisis con el antivirus instalado.','','#16a34a'],['🔄','Actualiza','Instala las actualizaciones del sistema y reinicia.','','#f59e0b']]},
+{n:'🖱️ Mouse',s:[['🔗','Desconecta el mouse','Desconéctalo; si es inalámbrico, quítale las baterías.','','#1e6fff'],['🔎','Revisa el sensor','Voltea el mouse y busca pelusa en el sensor óptico y en los patines.','','#0ea5e9'],['🧼','Limpia con paño','Pasa un paño de microfibra apenas humedecido por la carcasa y un hisopo seco por el sensor.','No introduzcas líquidos en el mouse.','#16a34a'],['⏳','Seca y prueba','Deja secar, vuelve a conectar y prueba sobre una superficie lisa.','','#f59e0b']]},
+{n:'🧰 Limpieza interna (escritorio)',s:[['🔌','Apaga y desconecta','Apaga el equipo, desconecta el cable de corriente y espera unos minutos.','Si no tienes experiencia, pide ayuda a un técnico o a un adulto.','#dc2626'],['🪛','Abre la tapa lateral','Retira los tornillos de la tapa lateral con el destornillador adecuado.','No toques la fuente de alimentación por dentro.','#1e6fff'],['⚡','Evita la estática','Usa una pulsera antiestática o toca el metal de la caja antes de manipular algo.','','#0ea5e9'],['💨','Sopla el polvo','Usa aire comprimido en ráfagas cortas y sostén cada ventilador para que no gire de golpe.','No uses aspiradoras comunes ni paños húmedos dentro.','#16a34a'],['✅','Cierra y prueba','Coloca la tapa, reconecta y comprueba que enciende con normalidad.','','#f59e0b']]},
+{n:'💾 Actualizar y respaldar',s:[['🔄','Actualiza el sistema','Abre las actualizaciones del sistema, instala lo pendiente y reinicia.','','#1e6fff'],['🛡️','Analiza con el antivirus','Ejecuta un análisis completo con un antivirus confiable.','','#0ea5e9'],['📁','Elige qué respaldar','Selecciona documentos, fotos y trabajos importantes.','','#16a34a'],['☁️','Guarda la copia','Cópialos en un disco externo o una nube y repite cada cierto tiempo.','','#f59e0b']]}];
+let gi=0,gs=0;
+const O={plug:'<path d="M-8-26v12M8-26v12"/><rect x="-14" y="-14" width="28" height="14"/><path d="M-14 0a14 14 0 0 0 28 0zM0 14v18"/>',power:'<circle r="20"/><path d="M0-11v11M-7-7a10 10 0 1 0 14 0"/>',kb:'<rect x="-40" y="-18" width="80" height="36" rx="4"/><path d="M-32-8h64M-32 0h64M-32 9h64M-20-14v22M-4-14v22M12-14v22" stroke-opacity=".5"/>',brush:'<path d="M-26 24l28-28" stroke-width="6"/><path d="M4-10l10-10 14 14-10 10zM14-20l6-8M20-14l10-6"/>',cloth:'<path d="M-30-14q15-8 30 0t30 0v30q-15 8-30 0t-30 0z"/>',screen:'<rect x="-42" y="-28" width="84" height="52" rx="5"/><path d="M-12 24h24l4 10h-32z"/>',fan:'<circle r="30"/><circle r="5"/><path d="M0-6q-14-22 0-22q14 0 0 22M6 0q22-14 22 0q0 14-22 0M0 6q14 22 0 22q-14 0 0-22M-6 0q-22 14-22 0q0-14 22 0"/>',can:'<rect x="-12" y="-14" width="24" height="42" rx="4"/><path d="M-6-14v-8h12v8M6-20h12M24-24l10-4M24-20h12M24-16l10 4"/>',case:'<rect x="-26" y="-34" width="52" height="68" rx="5"/><circle cy="-16" r="7"/><path d="M-14 14h28M-14 22h28"/>',folder:'<path d="M-30-18h20l8 8h32v34h-60z"/>',disk:'<rect x="-26" y="-18" width="52" height="36" rx="5"/><circle cx="8" r="9"/><path d="M-20 10h10"/>',shield:'<path d="M0-30l26 8v16c0 16-12 24-26 30-14-6-26-14-26-30v-16z"/><path d="M-10 0l8 8 14-16"/>',cloud:'<path d="M-26 14a14 14 0 0 1 2-28 18 18 0 0 1 34-4 15 15 0 0 1 8 32z"/>',screwdriver:'<rect x="-7" y="-30" width="14" height="26" rx="5"/><path d="M0-4v32M-3 28h6"/>',wrist:'<ellipse rx="26" ry="14"/><ellipse rx="14" ry="6"/><path d="M26 0h12l6 8"/>',clock:'<circle r="26"/><path d="M0-14v14l10 6"/>',check:'<circle r="26"/><path d="M-12 0l8 9 16-18"/>',arrows:'<path d="M-22-4a24 24 0 0 1 40-10M22 4a24 24 0 0 1-40 10M18-24v10h-10M-18 24v-10h10"/>',bottle:'<rect x="-14" y="-12" width="28" height="40" rx="6"/><rect x="-6" y="-26" width="12" height="14"/>',tube:'<path d="M-30-8h44l12 8-12 8h-44zM-30-8v16"/>',meter:'<rect x="-24" y="-30" width="48" height="60" rx="6"/><rect x="-16" y="-22" width="32" height="16"/><circle cy="12" r="10"/>',mouse:'<rect x="-18" y="-28" width="36" height="56" rx="16"/><path d="M0-28v24M-18-4h36"/>'};
+const GS='fill="#1e3f8f" fill-opacity=".7" stroke="#5ad1ff" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"';
+const mini=t=>`<svg viewBox="-42 -42 84 84" role="img" aria-label="${t}"><g ${GS}>${O[t]}</g></svg>`;
+const SCN={'🔌':[['power','Botón de encendido'],['plug','Cable de corriente']],'🔗':[['mouse','Mouse'],['plug','Cable USB o baterías']],'🖌️':[['kb','Teclado'],['brush','Brocha suave']],'🧽':[['kb','Teclas y carcasa'],['cloth','Paño de microfibra']],'🧼':[['mouse','Carcasa del mouse'],['cloth','Paño apenas húmedo']],'⏳':[['clock','Tiempo de secado'],['check','Listo para usar']],'🧻':[['screen','Pantalla'],['cloth','Paño seco']],'💧':[['screen','Pantalla'],['cloth','Paño apenas húmedo']],'✅':[['case','Equipo'],['check','Sin marcas ni fallas']],'🔍':[['fan','Ventilador o rejilla'],['case','Entradas y salidas de aire']],'🔎':[['mouse','Mouse: sensor óptico y patines']],'💨':[['can','Aire comprimido'],['fan','Ventilador (sujétalo)']],'📦':[['case','Equipo sobre superficie dura'],['arrows','Aire que circula']],'🗑️':[['folder','Papelera y temporales'],['disk','Almacenamiento']],'📥':[['folder','Carpeta de descargas'],['disk','Disco externo']],'🛡️':[['shield','Antivirus'],['screen','Análisis del equipo']],'🔄':[['arrows','Actualizaciones'],['screen','Sistema operativo']],'🪛':[['case','Tapa lateral'],['screwdriver','Destornillador']],'⚡':[['wrist','Pulsera antiestática'],['case','Metal de la caja']],'📁':[['folder','Documentos y fotos']],'☁️':[['cloud','Nube'],['disk','Disco externo']]};
+const lab=(l,x)=>{const w=l.split(' '),m=Math.ceil(w.length/2),a=l.length>15?[w.slice(0,m).join(' '),w.slice(m).join(' ')]:[l];return a.map((t,k)=>`<text x="${x}" y="${184+k*14}" fill="#fff" font-size="11.5" text-anchor="middle">${t}</text>`).join('')};
+const scene=(e,n)=>{const it=SCN[e]||[],xs=it.length===1?[160]:[90,230];gid++;return `<svg viewBox="0 0 320 210" role="img" aria-label="Ilustración del paso ${n+1}: ${it.map(o=>o[1]).join(', ')}"><defs><linearGradient id="s${gid}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#12306e"/><stop offset="1" stop-color="#0a1a44"/></linearGradient><marker id="m${gid}" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="#5ad1ff"/></marker></defs><rect width="320" height="210" fill="url(#s${gid})"/><g stroke="#5ad1ff" stroke-opacity=".08">${[40,80,120,160,200,240,280].map(x=>`<path d="M${x} 0V210"/>`).join('')}</g><text x="12" y="22" fill="#5ad1ff" font-size="13" font-weight="700">PASO ${n+1}</text>${it.map((o,i)=>`<g transform="translate(${xs[i]} 85) scale(1.25)" ${GS}>${O[o[0]]}</g><path d="M${xs[i]} 168V144" stroke="#5ad1ff" stroke-width="2" marker-end="url(#m${gid})"/>${lab(o[1],xs[i])}`).join('')}</svg>`};
+const RES=['El teclado queda sin polvo ni migajas, limpio, seco y funcionando con normalidad.','La pantalla queda limpia, sin polvo ni marcas.','Las rejillas y ventiladores quedan sin polvo visible y el equipo tiene espacio para ventilar.','El equipo tiene más espacio libre, está analizado y actualizado.','El mouse queda limpio y se desplaza con normalidad.','El interior queda sin polvo visible y el equipo enciende con normalidad.','El sistema queda actualizado y tus archivos importantes tienen una copia aparte.'];
+GU.push({n:'🐌 PC lento',c:1,s:[['🗔','Abre el Administrador de tareas','Presiona al mismo tiempo Ctrl + Shift + Esc. Se abre una ventana con los programas que están funcionando.','','#1e6fff'],['❌','Cierra lo que no uses','Busca el programa que usa más memoria o procesador, selecciónalo y pulsa «Finalizar tarea». Cierra solo programas que reconozcas.','No cierres procesos del sistema que no conozcas.','#dc2626'],['🔁','Reinicia el equipo','Guarda tu trabajo y usa Inicio > Reiniciar. Reiniciar libera memoria y cierra procesos atascados.','','#0ea5e9'],['🗑️','Libera espacio','Si el disco está casi lleno, borra temporales y descargas que no necesites desde Configuración > Almacenamiento.','','#16a34a']]},{n:'⚡ No enciende',c:1,s:[['🔌','Prueba la toma','Conecta otro aparato a la misma toma para confirmar que hay corriente, o cambia de regleta.','','#1e6fff'],['🔦','Revisa los cables','Comprueba que el cable de corriente (o el cargador, en un portátil) esté bien insertado en el equipo y en la pared. Prueba otro cable si tienes.','','#0ea5e9'],['🖥️','Revisa el monitor','A veces el equipo sí enciende, pero el monitor está apagado o su cable de video está suelto. Verifica su luz y su conexión.','','#16a34a'],['🧑‍🔧','Pide ayuda técnica','Si sigue sin encender, llévalo a un técnico.','No abras la fuente de alimentación ni la batería.','#dc2626']]},{n:'🔥 Se sobrecalienta',c:1,s:[['🛑','Guarda y apaga','Guarda tu trabajo y apaga el equipo desde el sistema para que se enfríe.','','#dc2626'],['📦','Mejora la ventilación','Colócalo sobre una superficie dura y plana, con espacio libre alrededor. En un portátil, no lo uses sobre cama o cojines.','','#0ea5e9'],['💨','Limpia las rejillas por fuera','Con el equipo apagado y desconectado, sopla las rejillas con aire comprimido en ráfagas cortas.','No abras el equipo si no tienes experiencia.','#16a34a'],['🔁','Vuelve a encender','Enciende de nuevo y evita programas muy pesados un rato. Observa si el ventilador suena fuerte o si se calienta otra vez.','Si se apaga solo o sigue muy caliente, llévalo a un técnico.','#f59e0b']]},{n:'📶 Sin internet',c:1,s:[['📡','Revisa el router','Mira si el router tiene sus luces encendidas y si otros dispositivos tienen internet.','','#1e6fff'],['🔁','Reinicia el router','Desconéctalo de la corriente 30 segundos, vuelve a conectarlo y espera unos minutos.','','#0ea5e9'],['📶','Comprueba el Wi-Fi','En tu equipo confirma que el Wi-Fi esté activado y que no esté el modo avión.','','#16a34a'],['🔑','Vuelve a conectarte','Elige «Olvidar red», selecciónala otra vez y escribe la clave. Si ningún dispositivo tiene internet, llama a tu proveedor.','','#f59e0b']]},{n:'🔇 Sin sonido',c:1,s:[['🔊','Revisa el volumen','Mira el icono de volumen: que no esté en silencio y que el programa que usas tampoco lo esté.','','#1e6fff'],['🎧','Elige la salida correcta','En el icono de volumen selecciona altavoces o audífonos, según lo que uses.','','#0ea5e9'],['🔈','Revisa la conexión','Desconecta y vuelve a conectar altavoces o audífonos y comprueba que estén encendidos.','','#16a34a'],['🔄','Reinicia y actualiza','Reinicia el equipo e instala las actualizaciones pendientes. Si no hay sonido en ninguna salida, consulta a un técnico.','','#f59e0b']]},{n:'🧊 Congelado',c:1,s:[['⏱️','Espera un momento','Espera uno o dos minutos: a veces solo está ocupado.','','#1e6fff'],['🗔','Abre el Administrador de tareas','Presiona Ctrl + Shift + Esc y cierra el programa que no responde con «Finalizar tarea».','','#0ea5e9'],['🔘','Apagado forzado','Si nada responde, mantén pulsado el botón de encendido hasta que se apague y vuelve a encender.','Úsalo solo si no hay otra opción: puedes perder lo no guardado.','#dc2626'],['🔄','Actualiza el sistema','Cuando funcione, instala actualizaciones y revisa el espacio libre. Si se congela seguido, consulta a un técnico.','','#16a34a']]},{n:'📦 Almacenamiento lleno',c:1,s:[['📊','Mira qué ocupa espacio','Abre Configuración > Sistema > Almacenamiento para ver qué ocupa más.','','#1e6fff'],['🗑️','Borra temporales','Usa la opción de archivos temporales y vacía la papelera.','','#0ea5e9'],['🧩','Desinstala lo que no usas','En Configuración > Aplicaciones, desinstala programas que ya no necesites.','','#16a34a'],['☁️','Mueve fotos y videos','Pásalos a una nube o a un disco externo y luego bórralos del equipo.','Verifica que la copia esté completa antes de borrar.','#f59e0b']]});
+RES.push('El equipo responde con más rapidez. Si sigue lento, consulta a un técnico: puede necesitar más RAM, un SSD o limpieza interna.','Sabes si el fallo es de corriente, de cables o del monitor, o que el equipo necesita un técnico.','El equipo trabaja más fresco y con ventilación libre.','El equipo vuelve a conectarse a internet, o sabes que el problema es del proveedor.','El equipo vuelve a reproducir sonido.','El equipo vuelve a responder.','El equipo tiene espacio libre para trabajar y actualizarse.');
+Object.assign(SCN,{'🗔':[['kb','Teclas Ctrl + Shift + Esc'],['screen','Administrador de tareas']],'❌':[['screen','Administrador de tareas'],['check','Finalizar tarea']],'🔁':[['power','Botón de encendido'],['arrows','Reiniciar']],'🔦':[['plug','Cable de corriente'],['case','Entrada del equipo']],'🖥️':[['screen','Monitor encendido'],['plug','Cable de video']],'🧑‍🔧':[['case','Equipo que no enciende']],'🛑':[['screen','Guarda tu trabajo'],['power','Apagar']],'📡':[['case','Router'],['check','Luces encendidas']],'📶':[['screen','Ícono de Wi-Fi'],['check','Wi-Fi activado']],'🔑':[['screen','Redes Wi-Fi'],['arrows','Volver a conectar']],'🔊':[['screen','Ícono de volumen'],['check','Volumen activado']],'🎧':[['plug','Audífonos o altavoces'],['screen','Salida de audio']],'🔈':[['plug','Conector de audio'],['case','Equipo']],'⏱️':[['clock','Espera 1 o 2 minutos'],['screen','Pantalla sin respuesta']],'🔘':[['power','Botón de encendido'],['clock','Mantener pulsado']],'📊':[['disk','Almacenamiento'],['screen','Qué ocupa más espacio']],'🧩':[['screen','Aplicaciones instaladas'],['folder','Programa sin uso']]});
+const GD=GU.map(g=>g.s.map(()=>false));
+function guide(){const g=GU[gi],s=g.s[gs],sc=SCN[s[0]]||[],n=GD[gi].filter(Boolean).length,im=$('#gImg');
+$('#gTabs').innerHTML=GU.map((x,i)=>`${i===0?'<span class="tg p">🛡️ Preventivo</span>':''}${x.c&&!GU[i-1].c?'<span class="tg c">🔧 Correctivo</span>':''}<button class="b ${i===gi?'on':''} ${x.c?'c':''}" data-i="${i}">${x.n}</button>`).join('');
+im.innerHTML='<div class="pic">'+scene(s[0],gs)+'</div><small>Toca la imagen para ampliarla</small>';im.classList.remove('fade');void im.offsetWidth;im.classList.add('fade');
+$('#gT').textContent=`Paso ${gs+1}. ${s[1]}`;$('#gD').textContent=s[2];$('#gW').hidden=!s[3];$('#gW').textContent='⚠️ '+s[3];
+$('#gChips').innerHTML='<b>En la imagen:</b> '+sc.map(o=>`<span>${o[1]}</span>`).join('');$('#gDone').checked=GD[gi][gs];
+$('#gP').style.width=(n/g.s.length*100)+'%';$('#gDots').innerHTML=g.s.map((_,i)=>`<button class="dot ${GD[gi][i]?'ok':''} ${i===gs?'cur':''}" data-i="${i}" aria-label="Ir al paso ${i+1}">${i+1}</button>`).join('');
+$('#gR').innerHTML=(n===g.s.length?'✅ <b>Resultado esperado:</b> ':'🎯 <b>Meta:</b> ')+RES[gi];$('#gC').textContent=`Paso ${gs+1} de ${g.s.length} · ${n} completados`;$('#gB').disabled=gs===0;$('#gN').disabled=gs===g.s.length-1}
+$('#gDone').onchange=e=>{GD[gi][gs]=e.target.checked;guide()};$('#gDots').onclick=e=>{const b=e.target.closest('.dot');if(b){gs=+b.dataset.i;guide()}};
+$('#gTabs').onclick=e=>{const b=e.target.closest('button');if(b){gi=+b.dataset.i;gs=0;guide()}};
+$('#gB').onclick=()=>{gs--;guide()};$('#gN').onclick=()=>{gs++;guide()};guide();
+
+$('#sigList').innerHTML=[['🐌','Lentitud constante','Tarda mucho en abrir programas incluso tras reiniciar.'],['🔥','Calor y ruido','Ventiladores muy ruidosos o carcasa muy caliente.'],['📦','Poco espacio','El sistema avisa que el disco está casi lleno.'],['🪟','Ventanas y anuncios','Aparecen anuncios o programas que no instalaste.'],['🔁','Reinicios o cuelgues','El equipo se congela o se reinicia solo.'],['⌨️','Suciedad visible','Teclas pegajosas, pantalla opaca o polvo en las rejillas.']].map(s=>`<article class="card"><h3>${s[0]} ${s[1]}</h3><p>${s[2]}</p></article>`).join('');
+
+const fan=d=>`<svg viewBox="0 0 320 200"><rect width="320" height="200" fill="#0d2a6b"/><circle cx="160" cy="100" r="80" fill="#0b1f4d" stroke="#5ad1ff" stroke-width="4"/>${[0,72,144,216,288].map(a=>`<ellipse cx="160" cy="55" rx="16" ry="38" fill="#1e6fff" transform="rotate(${a} 160 100)"/>`).join('')}<circle cx="160" cy="100" r="14" fill="#fff"/>${d?[[110,70,26],[205,80,30],[130,140,34],[200,135,24],[160,100,22],[90,110,18]].map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="${p[2]}" fill="#9aa3b2" opacity=".8"/>`).join('')+'<text x="12" y="188" font-size="13" fill="#fff">Con polvo</text>':'<text x="250" y="188" font-size="13" fill="#fff">Limpio</text>'}</svg>`;
+$('#ba').innerHTML=fan(0)+'<div class="top">'+fan(1)+'</div>';$('#baR').oninput=e=>{$('#ba .top').style.clipPath=`inset(0 ${100-e.target.value}% 0 0)`};
+
+const C2=[['Procesador (CPU)','🧠','Ejecuta las instrucciones de los programas.','Sobre la tarjeta madre, bajo el disipador.','Mantener su temperatura controlada y el disipador sin polvo.','Sobrecalentamiento, lentitud o apagados repentinos.'],
+['Memoria RAM','🧩','Guarda temporalmente lo que estás usando.','En las ranuras junto al procesador.','Evitar tocar sus contactos; su manipulación requiere cuidado.','Pantallazos azules, reinicios y lentitud.'],
+['Tarjeta madre','🔌','Conecta todas las piezas entre sí.','Es la base de la caja; todo se conecta a ella.','Evitar polvo, humedad y golpes.','Si falla, el equipo puede no encender: requiere técnico.'],
+['Disco duro (HDD)','💽','Guarda archivos en discos giratorios.','En una bahía de la caja.','Evitar golpes con el equipo encendido y no llenarlo.','Ruidos, lentitud y archivos que no abren. Haz copias.'],
+['Unidad SSD','⚡','Guarda archivos en memoria sin partes móviles; es muy rápida.','En una bahía o directamente en la tarjeta madre.','No llenarla por completo; mantener el sistema actualizado.','Pérdida de velocidad y errores de lectura.'],
+['Fuente de alimentación','🔋','Convierte la corriente de la pared en la energía de cada pieza.','En una esquina de la caja.','Solo limpiar rejillas por fuera; no abrir ni manipular.','Equipo que no enciende o se apaga solo: técnico.'],
+['Tarjeta gráfica','🎮','Procesa imágenes y video.','En una ranura grande de la tarjeta madre (o integrada).','Limpiar polvo y mantener ventilación.','Fallos en pantalla, calor y ventiladores ruidosos.'],
+['Ventiladores','🌀','Mueven aire para sacar el calor.','En la caja, la fuente y los disipadores.','Quitar el polvo de las aspas con aire comprimido.','Ruido, giro lento y calentamiento.'],
+['Disipador de calor','❄️','Pieza metálica que absorbe el calor del procesador.','Encima del procesador.','Mantener sus aletas sin polvo.','Si se ensucia o se suelta, el procesador se calienta.']];
+const HS=[[2,'<rect x="30" y="25" width="230" height="215" rx="10"/>','<text x="40" y="45">Tarjeta madre</text>'],[0,'<rect x="100" y="60" width="46" height="46"/>','<text x="106" y="87">CPU</text>'],[8,'<rect x="150" y="60" width="46" height="46"/>','<text x="152" y="80">Disip.</text>'],[1,'<rect x="208" y="60" width="9" height="90"/><rect x="220" y="60" width="9" height="90"/><rect x="232" y="60" width="9" height="90"/>','<text x="206" y="165">RAM</text>'],[6,'<rect x="50" y="175" width="200" height="26" rx="4"/>','<text x="120" y="192">Tarjeta gráfica</text>'],[7,'<circle cx="335" cy="55" r="32"/>','<text x="318" y="58">Ventil.</text>'],[4,'<rect x="280" y="105" width="100" height="24" rx="4"/>','<text x="310" y="121">SSD</text>'],[3,'<rect x="280" y="138" width="100" height="42" rx="4"/>','<text x="316" y="163">HDD</text>'],[5,'<rect x="280" y="198" width="100" height="62" rx="4"/>','<text x="288" y="233">Fuente</text>']];
+$('#pcD').innerHTML='<rect x="10" y="10" width="380" height="260" rx="14" fill="none" stroke="#5ad1ff" stroke-width="3"/>'+HS.map(h=>`<g class="hs" data-k="${h[0]}" tabindex="0" role="button" aria-label="${C2[h[0]][0]}">${h[1]}${h[2]}</g>`).join('');
+const showC=k=>{const c=C2[k];$$('.hs').forEach(x=>x.classList.toggle('on',x.dataset.k==k));$('#pcI').innerHTML=`<h3>${c[1]} ${c[0]}</h3><p><b>Función:</b> ${c[2]}</p><p><b>Dónde está:</b> ${c[3]}</p><p><b>Cuidados:</b> ${c[4]}</p><p><b>Problemas:</b> ${c[5]}</p>`};
+$('#pcD').onclick=e=>{const g=e.target.closest('.hs');if(g)showC(g.dataset.k)};$('#pcD').onkeydown=e=>{const g=e.target.closest('.hs');if(g&&e.key==='Enter')showC(g.dataset.k)};
+$('#compList').onclick=e=>{const b=e.target.closest('.comp');if(!b)return;$$('.comp').forEach(x=>x.classList.remove('on'));b.classList.add('on');const c=C2[[0,1,3,2,5,6,7][b.dataset.n]];$('#compInfo').innerHTML=`<h3>${c[1]} ${c[0]}</h3><p><b>Función:</b> ${c[2]}</p><p><b>Dónde está:</b> ${c[3]}</p><p><b>Cuidados:</b> ${c[4]}</p><p><b>Problemas:</b> ${c[5]}</p>`};
+
+/* Ordenar pasos */
+function ord(){const S=GU[0].s.map(s=>s[1]),mix=S.map((t,i)=>[t,i]).sort(()=>Math.random()-.5);let nx=0;
+$('#ord').innerHTML=`<h3>🔢 Ordena los pasos de limpiar un teclado</h3><p id="oc">Toca los pasos en el orden correcto.</p>${mix.map(m=>`<button class="opt" data-i="${m[1]}">${m[0]}</button>`).join('')}<button class="b" id="orr">Reiniciar</button>`;$('#orr').onclick=ord;
+$$('#ord .opt').forEach(b=>b.onclick=()=>{if(+b.dataset.i===nx){b.classList.add('ok');b.disabled=true;nx++;$('#oc').textContent=nx===S.length?'🎉 ¡Orden correcto!':`Bien. Paso ${nx} de ${S.length}.`}else{b.classList.add('no');setTimeout(()=>b.classList.remove('no'),500);$('#oc').textContent='❌ Ese no es el siguiente paso.'}})}
+ord();
+/* Test de síntomas */
+const SY=[['El equipo está lento','Libera espacio, desinstala programas y actualiza (mantenimiento de software).'],['Está muy caliente o los ventiladores suenan fuerte','Limpia rejillas por fuera y mejora la ventilación; si sigue, pide limpieza interna a un técnico.'],['Teclado o pantalla sucios','Limpieza física externa con paño de microfibra.'],['Aparecen anuncios o programas que no instalé','Análisis antivirus y revisión de programas instalados.'],['El disco está casi lleno','Borra temporales y mueve archivos a una nube o disco externo.'],['No enciende u huele a quemado','Mantenimiento correctivo: no lo manipules, desconéctalo y llévalo a un técnico.']];
+$('#sym').innerHTML=`<h3>🩺 ¿Qué mantenimiento necesita?</h3><p>Marca lo que observas:</p>${SY.map((s,i)=>`<label class="chk"><input type="checkbox" value="${i}"> ${s[0]}</label>`).join('')}<p><button class="b" id="syb">Ver recomendación</button></p><div id="syo" class="fb" aria-live="polite">Marca al menos un síntoma.</div>`;
+$('#syb').onclick=()=>{const v=$$('#sym input:checked').map(x=>SY[x.value][1]);$('#syo').innerHTML=v.length?'<ul>'+li(v)+'</ul>':'Marca al menos un síntoma.'};
+
+/* Glosario */
+const GL=[['CPU / Procesador','El “cerebro” del computador: ejecuta las instrucciones de los programas.'],['RAM','Memoria temporal que guarda lo que estás usando; se borra al apagar.'],['SSD','Unidad de almacenamiento sin partes móviles, rápida y silenciosa.'],['HDD','Disco duro con discos giratorios; más lento y sensible a golpes.'],['BIOS','Programa básico que prepara el hardware al encender el equipo.'],['Sistema operativo','Programa principal que permite usar el computador (Windows, macOS, Linux).'],['Antivirus','Programa que detecta y elimina software malicioso.'],['Tarjeta madre','Placa principal que conecta todas las piezas.'],['Malware','Software creado para dañar el equipo o robar información.'],['Driver (controlador)','Programa que permite que el sistema use una pieza o dispositivo.'],['Copia de seguridad','Copia de tus archivos en otro lugar para no perderlos.'],['Actualización','Mejora del sistema o programas que corrige errores y fallas de seguridad.'],['Pasta térmica','Material que ayuda a pasar el calor del procesador al disipador.'],['Archivos temporales','Archivos que el sistema crea para uso momentáneo y suelen poder borrarse.'],['Sobrecalentamiento','Exceso de temperatura que puede reducir el rendimiento o dañar piezas.']];
+const rg=v=>{const n=norm(v);$('#gl').innerHTML=GL.filter(g=>norm(g[0]+g[1]).includes(n)).map(g=>`<article class="card"><h3>${g[0]}</h3><p>${g[1]}</p></article>`).join('')||'<p>Sin resultados.</p>'};rg('');$('#gq').oninput=e=>rg(e.target.value);
+
+/* Plan */
+const PL=[['🧽','Limpieza externa','Cada semana','Cada 2 o 3 días'],['🗂️','Revisión de archivos y espacio','Cada mes','Cada 2 semanas'],['🔄','Actualizaciones','Revisar cada mes','Revisar cada semana'],['💾','Copias de seguridad','Cada mes','Cada semana'],['🛡️','Análisis antivirus','Cada mes','Cada 2 semanas'],['🌀','Polvo en rejillas y ventiladores','Cada 3 a 6 meses','Cada 2 a 3 meses'],['🩺','Revisión general','Cada 6 a 12 meses','Cada 3 a 6 meses']];
+function plan(u){$('#planT').innerHTML='<tr><th>Tarea</th><th>Frecuencia sugerida</th></tr>'+PL.map(p=>`<tr><td>${p[0]} ${p[1]}</td><td>${p[u+1]}</td></tr>`).join('');$$('[data-u]').forEach(b=>b.classList.toggle('on',b.dataset.u==u+1))}
+plan(1);$$('[data-u]').forEach(b=>b.onclick=()=>plan(+b.dataset.u));
+$('#tipB').onclick=()=>{$('#tipO').textContent='💡 '+TIPS[Math.floor(Math.random()*TIPS.length)]};
+
+/* Animación al desplazarse */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
+$$('section > *:not(.hero-text)').forEach(e=>{e.classList.add('rv');io.observe(e)});
+
+/* ---------- Rediseño v3: imágenes y contenido ---------- */
+const COL=['#1e6fff','#0ea5e9','#16a34a','#f59e0b','#8b5cf6','#dc2626','#0891b2','#d97706','#4f46e5','#059669','#e11d48'];
+const HT=['Administrador de tareas y antivirus.','Otro cable o cargador y una toma que sepas que funciona.','Aire comprimido y una superficie dura.','Acceso al router y solucionador de problemas de red.','Audífonos o altavoces de prueba.','Otro puerto USB, baterías nuevas y otro computador para probar.','Administrador de tareas (Ctrl+Shift+Esc).','Herramienta de almacenamiento del sistema y un disco externo o nube.','Papel para anotar el código de error.','Baterías nuevas, paño seco y otro puerto USB.','Aire comprimido y el historial de actualizaciones.'];
+$$('#corrList details').forEach((d,n)=>{const b=d.querySelector('div');b.insertAdjacentHTML('afterbegin',`<div class="pic">${ill(CORR[n].i,COL[n%COL.length],CORR[n].t)}</div>`);b.querySelector('ol').insertAdjacentHTML('afterend',`<p><b>🧰 Qué puedes necesitar:</b> ${HT[n]}</p>`)});
+const USO=['Pásalo con movimientos suaves; lávalo cuando se ensucie.','Pásala por teclas y rejillas, sin presionar.','Ráfagas cortas, en vertical y sosteniendo el ventilador.','Humedece un paño, nunca el equipo; úsalo en poca cantidad.','Usa la medida exacta del tornillo y no fuerces.','Conéctala a un metal de la caja antes de tocar piezas.','Se aplica en capa mínima al cambiar un disipador; es tarea técnica.','Mide voltajes; solo para personas con conocimientos eléctricos.'];
+$$('#toolList .tool').forEach((c,n)=>{c.insertAdjacentHTML('afterbegin',`<div class="pic">${mini(['cloth','brush','can','bottle','screwdriver','wrist','tube','meter'][n])}</div>`);c.insertAdjacentHTML('beforeend',`<p><b>Cómo se usa:</b> ${USO[n]}</p>`)});
+$('#preventivo h2').insertAdjacentHTML('afterend',`<div class="pic wide">${ill('🛡️','#16a34a','Mantenimiento preventivo')}</div>`);
+$('#correctivo h2').insertAdjacentHTML('afterend',`<div class="pic wide">${ill('🔧','#f59e0b','Mantenimiento correctivo')}</div>`);
+$('#errList').innerHTML=[['💦','Rociar líquido directo','Aplica poco producto en el paño, nunca sobre el equipo.'],['🔌','Limpiar con el equipo conectado','Apaga y desconecta siempre antes.'],['🧹','Usar aspiradora común','Genera estática; usa aire comprimido.'],['🔋','Abrir o reparar baterías','Pueden incendiarse; llévalas a un técnico.'],['🧪','Usar limpiadores fuertes','El amoníaco o el exceso de alcohol dañan pantallas y plásticos.'],['🔩','Forzar piezas','Si algo no sale con facilidad, detente y pide ayuda.']].map(e=>`<article class="card"><h3>${e[0]} ${e[1]}</h3><p>${e[2]}</p></article>`).join('');
+$('#begList').innerHTML=li(['Empieza por lo externo: limpiar y ordenar es seguro y útil.','Aprende primero los nombres de las piezas antes de tocar nada.','Haz copias de seguridad antes de cambiar configuraciones.','Cambia una sola cosa a la vez para saber qué funcionó.','Acompáñate de un adulto o técnico en lo interno y lo eléctrico.']);
+$$('#errores .rv').length||$$('#errores > *').forEach(e=>{e.classList.add('rv');io.observe(e)});
+
+/* Ampliar imágenes */
+const lb=document.createElement('div');lb.id='lb';lb.hidden=true;document.body.append(lb);
+document.addEventListener('click',e=>{const s=e.target.closest('.pic svg');if(s){lb.innerHTML=s.outerHTML+'<p>Toca para cerrar</p>';lb.hidden=false}else if(e.target.closest('#lb'))lb.hidden=true});
+addEventListener('keydown',e=>{if(e.key==='Escape')lb.hidden=true});
+/* Comprobación final */
+const CK=['El equipo estaba apagado y desconectado durante la limpieza.','No apliqué líquidos directamente sobre el equipo.','Todo está seco antes de volver a conectarlo.','El equipo enciende y funciona con normalidad.','Hice copia de seguridad de mis archivos importantes.','Sé cuándo debo acudir a un técnico.'];
+$('#chkList').innerHTML=CK.map((c,i)=>`<li><label><input type="checkbox" class="ck"> ${c}</label></li>`).join('');
+$('#chkList').onchange=()=>{const n=$$('.ck:checked').length;$('#chkR').textContent=n===CK.length?'🎉 ¡Mantenimiento verificado!':`Verificado: ${n} de ${CK.length}`};
+$('#chkR').textContent=`Verificado: 0 de ${CK.length}`;
+$$('#comprobar > *').forEach(e=>{e.classList.add('rv');io.observe(e)});
+
+$$('[data-g]').forEach(a=>a.onclick=()=>{gi=+a.dataset.g;gs=0;guide()});
+const bg=document.createElement('div');bg.id='bg';bg.setAttribute('aria-hidden','true');bg.innerHTML='<i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i>'+['fan','case','shield','disk','plug','kb','cloud','meter','screen','screwdriver','arrows','mouse','brush','wrist'].map((t,i)=>`<div class="fl" style="left:${(i*37+8)%92}%;top:${(i*53+6)%88}%;animation-delay:${-i*1.7}s;width:${60+(i%3)*22}px">${mini(t)}</div>`).join('');document.body.prepend(bg);
+</script>
+</body>
+</html>
